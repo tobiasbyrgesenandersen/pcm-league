@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>National Team · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./nations.html">National Teams</a>
+          <a href="./races.html">Races</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="divisionHeader">
+            <div>
+              <h1 id="countryTitle" style="margin:0;">Country</h1>
+              <p class="muted" id="countryMeta" style="margin-top:8px;">—</p>
+            </div>
+            <a class="btn btn--small" href="./nations.html">← Back to nations</a>
+          </div>
+
+          <div class="section__head" style="margin-top:14px;">
+            <h2>National Team (Top 8)</h2>
+          </div>
+          <div class="rosterGrid" id="topRoster"></div>
+
+          <div class="section__head" style="margin-top:18px;">
+            <h2>All riders</h2>
+            <div class="row">
+              <input class="input" id="search" placeholder="Search riders in this country..." />
+            </div>
+          </div>
+
+          <div class="card" style="padding:0; overflow:hidden;">
+            <table class="table" id="riderTable">
+              <thead>
+                <tr>
+                  <th>Pos</th>
+                  <th>Rider</th>
+                  <th>Level</th>
+                  <th>Type</th>
+                  <th>Real</th>
+                </tr>
+              </thead>
+              <tbody id="riderTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./nation.js"></script>
+  </body>
+</html>

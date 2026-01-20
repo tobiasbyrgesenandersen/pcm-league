@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Race · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./races.html">Races</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="divisionHeader">
+            <div>
+              <h1 id="raceTitle" style="margin:0;">Race</h1>
+              <p class="muted" id="raceMeta" style="margin-top:8px;">—</p>
+            </div>
+            <a class="btn btn--small" href="./races.html">← Back to calendar</a>
+          </div>
+
+          <div class="card" style="margin-top:14px; padding:16px;">
+            <div class="raceInfoGrid">
+              <div>
+                <div class="muted">Country</div>
+                <div id="raceCountry" class="bigRow">—</div>
+              </div>
+              <div>
+                <div class="muted">Division</div>
+                <div id="raceDivision" class="bigRow">—</div>
+              </div>
+              <div>
+                <div class="muted">Stages</div>
+                <div id="raceStages" class="bigRow">—</div>
+              </div>
+              <div>
+                <div class="muted">Race ID</div>
+                <div id="raceId" class="bigRow">—</div>
+              </div>
+            </div>
+
+            <hr class="hr" />
+
+            <h2 style="margin:0;">About this race</h2>
+            <p class="muted" style="margin-top:8px;">
+              Placeholder description. Later we can add: profile, stage list, route map, points, and historic winners.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./race.js"></script>
+  </body>
+</html>

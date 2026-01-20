@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Races · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./index.html#teams">Teams</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+          <a href="./free-agents.html">Free Agents</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="divisionHeader">
+            <div>
+              <h1 style="margin:0;">Race Calendar</h1>
+              <p class="muted" id="raceMeta" style="margin-top:8px;">—</p>
+            </div>
+          </div>
+
+          <div class="section__head" style="margin-top:14px;">
+            <h2>All races</h2>
+            <div class="row">
+              <input class="input" id="search" placeholder="Search races..." />
+              <select class="input" id="divisionFilter">
+                <option value="">All divisions</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="raceList" id="raceList"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./races.js"></script>
+  </body>
+</html>

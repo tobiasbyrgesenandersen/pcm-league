@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rules · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./races.html">Races</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./free-agents.html">Free Agents</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h1 style="margin:0;">League Rules (Draft)</h1>
+          <p class="muted" style="margin-top:8px;">
+            This is a placeholder ruleset. We’ll refine it together.
+          </p>
+
+          <div class="card" style="margin-top:14px; padding:16px;">
+            <h2 style="margin-top:0;">1) Manager conduct</h2>
+            <ul class="list">
+              <li>Be respectful. No harassment or cheating.</li>
+              <li>Decisions by admins are final in disputes.</li>
+            </ul>
+
+            <h2>2) Teams & contracts</h2>
+            <ul class="list">
+              <li>Each manager controls one team.</li>
+              <li>Signings happen through the league transfer system.</li>
+              <li>Budgets and sponsor goals will be enforced.</li>
+            </ul>
+
+            <h2>3) Races & results</h2>
+            <ul class="list">
+              <li>Races are simulated in-game, results are published on the site.</li>
+              <li>Points systems will be listed per division and race category.</li>
+            </ul>
+
+            <h2>4) Transfers (coming soon)</h2>
+            <ul class="list">
+              <li>Windows: pre-season and mid-season (subject to change).</li>
+              <li>Free agents can be signed immediately if rules allow.</li>
+            </ul>
+
+            <h2>5) National teams (coming soon)</h2>
+            <ul class="list">
+              <li>National teams are formed from top riders per country.</li>
+            </ul>
+
+            <p class="muted" style="margin-top:12px;">
+              Next step: we’ll write the full official rules (deadlines, budgets, trades, penalties).
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

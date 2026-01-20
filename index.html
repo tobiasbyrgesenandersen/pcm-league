@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill" id="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="#teams">Teams</a>
+          <a href="./division.html">Divisions</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+          <a href="./free-agents.html">Free Agents</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="homeHero">
+        <div class="container homeHero__grid">
+          <div>
+            <div class="homeHero__badge">
+              <span class="pulse" aria-hidden="true"></span>
+              Online Manager League · Season 1992
+            </div>
+
+            <h1 class="homeHero__title">Build a team. Run a dynasty.</h1>
+            <p class="homeHero__sub">
+              Manage a pro cycling team in 1992. Claim an available team and start shaping history.
+            </p>
+
+            <div class="homeHero__mini">
+              <div class="miniStat">
+                <div class="miniStat__k" id="statTeams">—</div>
+                <div class="miniStat__l">Teams</div>
+              </div>
+              <div class="miniStat">
+                <div class="miniStat__k" id="statRiders">—</div>
+                <div class="miniStat__l">Riders</div>
+              </div>
+              <div class="miniStat">
+                <div class="miniStat__k" id="statDiv">—</div>
+                <div class="miniStat__l">Divisions</div>
+              </div>
+            </div>
+
+            <!-- Signup: small section that expands -->
+            <details class="card signupDetails" id="signupDetails">
+              <summary class="signupSummary">
+                <span>
+                  <strong>Sign up</strong>
+                  <span class="muted" style="margin-left:8px;">Claim a free team</span>
+                </span>
+                <span class="signupChevron" aria-hidden="true">▾</span>
+              </summary>
+
+              <div class="signupBody">
+                <form id="signupForm" class="form">
+                  <label class="formRow">
+                    <span>Manager name</span>
+                    <input class="input" name="manager_name" placeholder="e.g. Tobias" required />
+                  </label>
+
+                  <label class="formRow">
+                    <span>Email</span>
+                    <input class="input" name="email" type="email" placeholder="you@example.com" required />
+                  </label>
+
+                  <label class="formRow">
+                    <span>Select a team (free teams only)</span>
+                    <select class="input" id="teamSelect" name="team_id" required>
+                      <option value="">Loading…</option>
+                    </select>
+                    <div class="muted" style="margin-top:6px;">
+                      A team is “free” when <code>manager</code> is <code>Unknown</code>.
+                    </div>
+                  </label>
+
+                  <label class="formRow">
+                    <span>Short message (optional)</span>
+                    <textarea class="input textarea" name="note" placeholder="Anything you want us to know…"></textarea>
+                  </label>
+
+                  <label class="checkRow">
+                    <input type="checkbox" name="agree" required />
+                    <span>I agree to the rules and fair play.</span>
+                  </label>
+
+                  <button class="btn btn--primary" type="submit">Submit signup</button>
+                  <p class="muted" id="signupStatus" style="margin-top:10px;"></p>
+                </form>
+              </div>
+            </details>
+          </div>
+
+          <div class="card homeHero__panel">
+            <div class="card__head">
+              <h2>Season snapshot</h2>
+              <span class="badge">1992</span>
+            </div>
+
+            <ul class="list" style="margin-top:10px;">
+              <li>Races simulated in-game</li>
+              <li>Teams, rosters and rider profiles here</li>
+              <li>Transfers/news will be added later</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="teams">
+        <div class="container">
+          <div class="section__head">
+            <h2>Teams</h2>
+            <div class="row">
+              <input class="input" id="teamSearch" placeholder="Search teams..." />
+              <select class="input" id="divisionFilter">
+                <option value="">All divisions</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid teamsGrid" id="teamsGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted" id="dataFooter">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

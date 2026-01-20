@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>National Teams · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./races.html">Races</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+          <a href="./free-agents.html">Free Agents</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="divisionHeader">
+            <div>
+              <h1 style="margin:0;">National Teams</h1>
+              <p class="muted" style="margin-top:8px;">
+                Countries ranked by the strength of their top 8 riders (Level).
+              </p>
+            </div>
+          </div>
+
+          <div class="nationGrid" id="nationGrid" style="margin-top:14px;"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./nations.js"></script>
+  </body>
+</html>

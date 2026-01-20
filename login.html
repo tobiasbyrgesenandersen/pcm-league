@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./division.html">Divisions</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+          <a href="./free-agents.html">Free Agents</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2>League Login</h2>
+            <p class="muted">Pick your manager name and select an available team.</p>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <form id="loginForm" class="form">
+              <div class="formRow">
+                <span>Manager name</span>
+                <input class="input" id="managerName" placeholder="e.g. Tobias" required />
+              </div>
+
+              <div class="formRow">
+                <span>Email (for contact)</span>
+                <input class="input" id="email" type="email" placeholder="you@email.com" required />
+              </div>
+
+              <div class="formRow">
+                <span>Select a team (only free teams shown)</span>
+                <select class="input" id="teamSelect" required>
+                  <option value="">Loading teams…</option>
+                </select>
+                <div class="muted" style="margin-top:6px;">
+                  Free teams are those with Manager = <strong>Unknown</strong> or empty.
+                </div>
+              </div>
+
+              <div class="row" style="margin-top:6px;">
+                <button class="btn btn--primary" type="submit">Login</button>
+                <a class="btn" href="./index.html">Cancel</a>
+              </div>
+
+              <div id="status" class="muted" style="margin-top:10px;"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { login } from "./auth.js";
+
+      document.getElementById("year").textContent = String(new Date().getFullYear());
+
+      const statusEl = document.getElementById("status");
+      const teamSelect = document.getElementById("teamSelect");
+
+      function getNextUrl() {
+        const url = new URL(window.location.href);
+        const next = url.searchParams.get("next");
+        // Default goes to dashboard now ✅
+        return next ? decodeURIComponent(next) : "./dashboard.html";
+      }
+
+      async function loadTeams() {
+        const res = await fetch("./data/teams.csv", { cache: "no-store" });
+        if (!res.ok) throw new Error("Could not load teams.csv");
+
+        const text = await res.text();
+        const lines = text.split(/\r?\n/).filter(Boolean);
+        const headers = lines[0].split(",").map((h) => h.trim());
+
+        const rows = lines.slice(1).map((line) => {
+          const cols = line.split(",").map((c) => c.trim());
+          const obj = {};
+          headers.forEach((h, i) => (obj[h] = cols[i] ?? ""));
+          return obj;
+        });
+
+        const freeTeams = rows
+          .filter((t) => {
+            const m = String(t.manager ?? "").trim().toLowerCase();
+            return !m || m === "unknown";
+          })
+          .sort((a, b) => String(a.team_name).localeCompare(String(b.team_name)));
+
+        teamSelect.innerHTML = `<option value="">Select a team…</option>`;
+        if (freeTeams.length === 0) {
+          teamSelect.innerHTML = `<option value="">No free teams available</option>`;
+          teamSelect.disabled = true;
+          return;
+        }
+
+        for (const t of freeTeams) {
+          const opt = document.createElement("option");
+          opt.value = String(t.team_id);
+          opt.textContent = `${t.team_name}`;
+          teamSelect.appendChild(opt);
+        }
+      }
+
+      loadTeams().catch((err) => {
+        console.error(err);
+        statusEl.textContent = "Error loading teams. Check data/teams.csv path.";
+        teamSelect.innerHTML = `<option value="">Error loading teams</option>`;
+      });
+
+      document.getElementById("loginForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const managerName = document.getElementById("managerName").value;
+        const email = document.getElementById("email").value;
+        const teamId = teamSelect.value;
+
+        if (!teamId) {
+          statusEl.textContent = "Please select a team.";
+          return;
+        }
+
+        login({ managerName, email, teamId });
+        window.location.href = getNextUrl();
+      });
+    </script>
+  </body>
+</html>

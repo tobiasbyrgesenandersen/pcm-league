@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rider · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./races.html">Races</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+          <a href="./free-agents.html">Free Agents</a>
+          <a class="nav__cta" id="teamLink" href="./index.html#teams">Team</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="riderHeader">
+            <div class="riderPortraitLg" id="portraitWrap">
+              <img id="portraitImg" alt="Rider portrait" />
+              <div class="portraitFallback" id="portraitFallback">?</div>
+            </div>
+
+            <div class="riderHeadText">
+              <div class="riderNameRow">
+                <h1 id="riderName">Rider</h1>
+                <span class="levelBadge" id="levelBadge">LVL —</span>
+              </div>
+
+              <div class="riderBadges">
+                <span class="badgePill" id="typePill">Type: —</span>
+                <span class="badgePill" id="realPill">—</span>
+              </div>
+
+              <p class="muted" id="riderMeta" style="margin-top:10px;">—</p>
+
+              <div class="kpis riderKpis">
+                <div class="card kpi">
+                  <div class="v" id="kpiLevel">—</div>
+                  <div class="l">Level</div>
+                </div>
+                <div class="card kpi">
+                  <div class="v" id="kpiAge">—</div>
+                  <div class="l">Age</div>
+                </div>
+                <div class="card kpi">
+                  <div class="v" id="kpiHeight">—</div>
+                  <div class="l">Height</div>
+                </div>
+                <div class="card kpi">
+                  <div class="v" id="kpiWeight">—</div>
+                  <div class="l">Weight</div>
+                </div>
+              </div>
+
+              <div class="card levelBarCard">
+                <div class="levelBarRow">
+                  <span class="muted">Overall rating</span>
+                  <strong id="overallText">—</strong>
+                </div>
+                <div class="levelBar">
+                  <div class="levelBar__fill" id="levelBarFill"></div>
+                </div>
+                <p class="muted" style="margin-top:8px;">
+                  Level = average of all <code>stat_*</code> fields (empty values ignored).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section__head" style="margin-top:18px;">
+            <h2>Stats</h2>
+            <p class="muted">Sorted by strongest stats first.</p>
+          </div>
+
+          <div class="statsGrid" id="statsGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./rider.js"></script>
+  </body>
+</html>

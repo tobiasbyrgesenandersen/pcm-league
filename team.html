@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./division.html">Divisions</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+          <a href="./free-agents.html">Free Agents</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="teamHero">
+        <div class="container teamHeader teamHeader--two" style="align-items: stretch;">
+          <!-- LEFT -->
+          <div class="teamTitle" style="display:flex; flex-direction:column; gap:12px;">
+            <div>
+              <div class="teamBadge">
+                <img class="flag flag--sm" id="teamFlag" alt="" style="display:none;" />
+                <span class="swatch" id="teamSwatch" aria-hidden="true"></span>
+                <span id="teamCountry">—</span>
+                <span>·</span>
+                <a class="teamDivisionLink" id="teamDivisionLink" href="#">Division —</a>
+                <span>·</span>
+                <span id="teamSponsor">—</span>
+              </div>
+
+              <h1 id="teamName" style="margin: 12px 0 6px;">Team</h1>
+              <p class="muted" id="teamMeta" style="margin:0;">—</p>
+            </div>
+
+            <div class="kpis">
+              <div class="card kpi">
+                <div class="v" id="kpiRiders">—</div>
+                <div class="l">Riders</div>
+              </div>
+              <div class="card kpi">
+                <div class="v" id="kpiAvgLevel">—</div>
+                <div class="l">Avg Level</div>
+              </div>
+              <div class="card kpi">
+                <div class="v" id="kpiAvgAge">—</div>
+                <div class="l">Avg Age</div>
+              </div>
+              <div class="card kpi">
+                <div class="v" id="kpiBudget">—</div>
+                <div class="l">Budget</div>
+              </div>
+            </div>
+
+            <div style="flex: 1 1 auto;"></div>
+
+            <div class="card" style="padding:14px;">
+              <div class="card__head">
+                <h2>Captains</h2>
+                <span class="muted" style="font-size:12px;">Top 3 by Level</span>
+              </div>
+              <div class="captainsRow" id="captainsRow" style="margin-top:10px;"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="card kitCard" style="height: 100%; display:flex; flex-direction:column;">
+            <div class="card__head">
+              <h2>Jersey & Strengths</h2>
+              <span class="badge">1992</span>
+            </div>
+
+            <div class="kitGrid" style="flex: 1 1 auto; align-content: start;">
+              <div class="kitJersey" style="display:flex; flex-direction:column; height:100%;">
+                <div class="jerseyPreview" id="jerseyPreview" style="flex: 1 1 auto;">
+                  <img id="jerseyImg" alt="Team jersey" />
+                </div>
+
+                <div class="kitMeta">
+                  <div class="chipRow">
+                    <span class="chip chip--color">
+                      <span class="chip__dot" id="primaryDot" aria-hidden="true"></span>
+                      <span>Primary</span>
+                    </span>
+
+                    <span class="chip chip--color">
+                      <span class="chip__dot" id="secondaryDot" aria-hidden="true"></span>
+                      <span>Secondary</span>
+                    </span>
+                  </div>
+
+                  <div class="btnRow">
+                    <a class="btn btn--small" href="./index.html#teams">← Back</a>
+                    <button class="btn btn--small" id="btnExport">Export JSON</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="kitRadar" style="display:flex; flex-direction:column; height:100%;">
+                <div class="kitRadar__head">
+                  <div
+                    class="muted"
+                    style="font-weight:900; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;"
+                  >
+                    Team Radar
+                  </div>
+                </div>
+
+                <div class="radarWrap" style="flex: 1 1 auto; justify-content:center;">
+                  <div id="radarMount" class="radarMount"></div>
+                  <div class="radarLegend">
+                    <div class="radarLegend__item"><span class="dot dot--team"></span> Team average</div>
+                    <div class="radarLegend__item"><span class="dot dot--base"></span> Baseline</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /right -->
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2>Roster</h2>
+            <div class="row">
+              <input class="input" id="search" placeholder="Search riders." />
+              <select class="input" id="typeFilter">
+                <option value="">All types</option>
+                <option>Stage Racer</option>
+                <option>Sprinter</option>
+                <option>Climber</option>
+                <option>Puncher</option>
+                <option>Time Trialist</option>
+                <option>Baroudeur</option>
+                <option>Northern Classics</option>
+                <!-- ✅ All-Rounder removed -->
+              </select>
+            </div>
+          </div>
+
+          <p class="muted" style="margin:0 0 10px;">Sorted by Level (highest first).</p>
+          <div class="rosterGrid" id="roster"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./team.js"></script>
+  </body>
+</html>

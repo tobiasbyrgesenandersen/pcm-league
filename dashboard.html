@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./index.html">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <span class="brand__name">PCM League</span>
+          <span class="seasonPill">Season 1992</span>
+        </a>
+
+        <nav class="nav">
+          <a href="./division.html">Divisions</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./news.html">News</a>
+          <a href="./rules.html">Rules</a>
+          <a href="./free-agents.html">Free Agents</a>
+          <a class="nav__cta" href="./logout.html">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="homeHero__grid">
+            <!-- LEFT: Manager / Team hero -->
+            <div class="card homeHero__panel" style="padding:18px;">
+              <div class="homeHero__badge">
+                <span class="pulse" aria-hidden="true"></span>
+                <span id="dashKicker">Manager Dashboard</span>
+              </div>
+
+              <h1 class="homeHero__title" style="margin-bottom:8px;">
+                <span id="mgrName">Manager</span>
+                <span style="opacity:.65;">·</span>
+                <span id="teamName">Team</span>
+              </h1>
+
+              <p class="homeHero__sub" style="margin-top:0;">
+                Season <strong>1992</strong> · Your club, your decisions. Plan training, target races, and build your dynasty.
+              </p>
+
+              <div class="homeHero__mini">
+                <div class="miniStat">
+                  <div class="miniStat__k" id="kpiRoster">—</div>
+                  <div class="miniStat__l">Riders</div>
+                </div>
+                <div class="miniStat">
+                  <div class="miniStat__k" id="kpiAvg">—</div>
+                  <div class="miniStat__l">Avg Level</div>
+                </div>
+                <div class="miniStat">
+                  <div class="miniStat__k" id="kpiTop">—</div>
+                  <div class="miniStat__l">Best Rider</div>
+                </div>
+                <div class="miniStat">
+                  <div class="miniStat__k" id="kpiNextRace">—</div>
+                  <div class="miniStat__l">Next Race</div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top:14px;">
+                <a class="btn btn--primary" id="btnTeam" href="./team.html">Open Team Hub</a>
+                <a class="btn" href="./calendar.html">Calendar</a>
+                <a class="btn" href="./free-agents.html">Scouting</a>
+              </div>
+
+              <hr class="hr" />
+
+              <div class="card" style="padding:14px;">
+                <div class="card__head">
+                  <h2>Board & Inbox</h2>
+                  <span class="badge">New</span>
+                </div>
+                <ul class="list" style="margin-top:10px;">
+                  <li><strong>Board:</strong> Keep a top-10 rider on the roster by June.</li>
+                  <li><strong>Sponsor:</strong> Target points in your division races.</li>
+                  <li><strong>Inbox:</strong> Free agents are available — market opens soon.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- RIGHT: Quick panels -->
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <!-- Identity card -->
+              <div class="card" style="padding:16px;">
+                <div class="card__head">
+                  <h2>Club Identity</h2>
+                  <span class="badge" id="divisionChip">Division</span>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px;">
+                  <div class="jerseyPreview" id="jerseyBox" style="min-height:140px;">
+                    <img id="jerseyImg" alt="Team jersey" />
+                  </div>
+
+                  <div style="display:flex; flex-direction:column; gap:10px;">
+                    <div class="row" style="gap:8px;">
+                      <img class="flag" id="teamFlag" alt="" style="display:none;" />
+                      <div>
+                        <div style="font-weight:950;" id="countryName">—</div>
+                        <div class="muted" id="sponsorName" style="font-size:13px;">—</div>
+                      </div>
+                    </div>
+
+                    <div class="chipRow">
+                      <span class="chip chip--color">
+                        <span class="chip__dot" id="primaryDot" aria-hidden="true"></span>
+                        <span>Primary</span>
+                      </span>
+                      <span class="chip chip--color">
+                        <span class="chip__dot" id="secondaryDot" aria-hidden="true"></span>
+                        <span>Secondary</span>
+                      </span>
+                    </div>
+
+                    <div class="muted" style="font-size:13px;">
+                      Tip: Click <strong>Open Team Hub</strong> to view captains, full roster, and radar.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form card -->
+              <div class="card" style="padding:16px;">
+                <div class="card__head">
+                  <h2>Quick Actions</h2>
+                  <span class="badge">Manager</span>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:12px;">
+                  <a class="btn" href="./news.html">Read News</a>
+                  <a class="btn" href="./rules.html">Rules</a>
+                  <a class="btn" href="./nations.html">National Teams</a>
+                  <a class="btn" href="./division.html">Divisions</a>
+                </div>
+
+                <hr class="hr" />
+
+                <div class="muted" style="font-size:13px;">
+                  Logged in as <strong id="mgrEmail">—</strong> ·
+                  <a class="tableLink" href="./logout.html">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mid row: Squad + Market + Calendar -->
+          <div class="section__head" style="margin-top:18px;">
+            <h2>Today’s Overview</h2>
+            <p class="muted">Shortlist, form, and upcoming races.</p>
+          </div>
+
+          <div class="grid" style="grid-template-columns: 1.2fr 0.8fr 1fr; gap:12px;">
+            <!-- Squad focus -->
+            <div class="card" style="padding:16px;">
+              <div class="card__head">
+                <h2>Squad Focus</h2>
+                <span class="badge">Top 5</span>
+              </div>
+              <div id="topRiders" style="display:flex; flex-direction:column; gap:10px; margin-top:12px;"></div>
+            </div>
+
+            <!-- Scouting -->
+            <div class="card" style="padding:16px;">
+              <div class="card__head">
+                <h2>Scouting</h2>
+                <span class="badge">Market</span>
+              </div>
+
+              <div style="margin-top:12px;">
+                <div class="miniStat" style="min-width:auto;">
+                  <div class="miniStat__k" id="freeAgentsCount">—</div>
+                  <div class="miniStat__l">Free Agents</div>
+                </div>
+
+                <div class="muted" style="margin-top:10px; font-size:13px;">
+                  Build your shortlist — we can add a real transfer market later.
+                </div>
+
+                <div class="row" style="margin-top:12px;">
+                  <a class="btn btn--primary" href="./free-agents.html">Browse Free Agents</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next races -->
+            <div class="card" style="padding:16px;">
+              <div class="card__head">
+                <h2>Next Races</h2>
+                <a class="tableLink" href="./calendar.html" style="font-size:13px;">Open calendar</a>
+              </div>
+              <div id="nextRaces" style="display:flex; flex-direction:column; gap:10px; margin-top:12px;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span class="muted">Database: Local CSV ✓</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./dashboard.js"></script>
+  </body>
+</html>

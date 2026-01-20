@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News · PCM League</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="paperBody">
+    <header class="paperTop">
+      <div class="paperBar">
+        <a class="paperHome" href="./index.html">PCM League</a>
+        <span class="paperSeason">Season 1992</span>
+        <nav class="paperNav">
+          <a href="./races.html">Races</a>
+          <a href="./nations.html">National Teams</a>
+          <a href="./rules.html">Rules</a>
+        </nav>
+      </div>
+
+      <div class="paperMast">
+        <div class="paperMast__kicker">LA GAZZETTA DELLA LEGA</div>
+        <div class="paperMast__title">PCM League Times</div>
+        <div class="paperMast__meta">
+          Old-school cycling newspaper · printed for Season 1992
+        </div>
+      </div>
+    </header>
+
+    <main class="paperMain">
+      <section class="paperContainer">
+        <div class="paperPost card" style="padding:14px;">
+          <div class="card__head">
+            <h2>Post news</h2>
+            <span class="badge">Local</span>
+          </div>
+
+          <form id="newsForm" class="form paperForm" style="margin-top:12px;">
+            <label class="formRow">
+              <span>Headline</span>
+              <input class="input" name="title" placeholder="Write a bold headline…" required />
+            </label>
+
+            <label class="formRow">
+              <span>Byline</span>
+              <input class="input" name="author" placeholder="e.g. League Desk" required />
+            </label>
+
+            <label class="formRow">
+              <span>Article</span>
+              <textarea class="input textarea" name="body" placeholder="Write the story…" required></textarea>
+            </label>
+
+            <button class="btn btn--primary" type="submit">Publish</button>
+            <p class="muted" id="newsStatus" style="margin-top:8px;"></p>
+          </form>
+        </div>
+
+        <div class="paperGrid" id="newsGrid" style="margin-top:14px;"></div>
+      </section>
+    </main>
+
+    <footer class="paperFooter">
+      <div class="paperFootInner">
+        <span>© <span id="year"></span> PCM League · Season 1992</span>
+        <span>Database: Local CSV ✓ · News: LocalStorage</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./news.js"></script>
+  </body>
+</html>
